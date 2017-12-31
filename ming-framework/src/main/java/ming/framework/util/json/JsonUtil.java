@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
-import ming.framework.util.error.ExceptionUtil;
+import ming.framework.util.exception.ExceptionUtil;
 
 /**
  * Jsonπ§æﬂ¿‡
