@@ -1,4 +1,4 @@
-package ming.framework.util.exception;
+package ming.framework.util;
 
 import org.slf4j.Logger;
 
