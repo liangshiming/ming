@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Jrick on 2018/1/11.
  */
-public interface ServiceApiDao {
+public interface ServiceApiMapper {
 
     List<ServiceApi> selectAll();
 }

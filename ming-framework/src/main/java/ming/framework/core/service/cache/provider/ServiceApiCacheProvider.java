@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 import javax.annotation.Resource;
 
-import ming.framework.core.dao.ServiceApiDao;
+import ming.framework.core.dao.ServiceApiMapper;
 import ming.framework.core.po.ServiceApi;
 import ming.framework.core.service.cache.CacheProvider;
 import ming.framework.core.service.cache.CacheTypeConst;
@@ -26,7 +26,7 @@ public class ServiceApiCacheProvider implements CacheProvider {
     private static Map<String, ServiceApi> cacheMap = new TreeMap<>();
 
     @Resource
-    private ServiceApiDao dao;
+    private ServiceApiMapper mapper;
 
     @Override
     public String getType() {
@@ -46,8 +46,8 @@ public class ServiceApiCacheProvider implements CacheProvider {
 
     @Override
     public synchronized void forceInit() {
-        log.info("��ʼ������", getType());
-        List<ServiceApi> list = dao.selectAll();
+        log.info("", getType());
+        List<ServiceApi> list = mapper.selectAll();
         cacheMap = ReflectUtil.reflectToMap(list, "apiName", "tradeWay", "apiVersion");
     }
 

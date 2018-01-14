@@ -19,8 +19,6 @@ public class ServiceApi {
 
     private String function;
 
-    private String tradeWay;
-
     private String apiVersion;
 
     private String status;
