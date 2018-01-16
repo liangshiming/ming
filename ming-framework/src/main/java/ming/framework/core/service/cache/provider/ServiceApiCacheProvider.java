@@ -1,11 +1,6 @@
 package ming.framework.core.service.cache.provider;
 
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
-import javax.annotation.Resource;
-
+import lombok.extern.slf4j.Slf4j;
 import ming.framework.core.dao.ServiceApiMapper;
 import ming.framework.core.po.ServiceApi;
 import ming.framework.core.service.cache.CacheProvider;
@@ -13,7 +8,10 @@ import ming.framework.core.service.cache.CacheTypeConst;
 import ming.framework.util.ReflectUtil;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by Jrick on 2018/1/11.
@@ -48,7 +46,7 @@ public class ServiceApiCacheProvider implements CacheProvider {
     public synchronized void forceInit() {
         log.info("", getType());
         List<ServiceApi> list = mapper.selectAll();
-        cacheMap = ReflectUtil.reflectToMap(list, "apiName", "tradeWay", "apiVersion");
+        cacheMap = ReflectUtil.reflectToMap(list, "apiName", "apiVersion");
     }
 
     @Override

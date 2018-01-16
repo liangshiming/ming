@@ -12,10 +12,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class TransController extends BaseController {
-    @Override
-    protected String getApiType() {
-        return null;
-    }
 
     @RequestMapping(value = "/api", produces = "application/json; charset=UTF-8")
     @ResponseBody

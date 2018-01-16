@@ -22,5 +22,7 @@
 
     <modules>
         <module>ming-framework</module>
+        <module>ming-online-service</module>
+        <module>ming-online-server</module>
     </modules>
 </project>

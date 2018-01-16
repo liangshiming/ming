@@ -2,15 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ming</groupId>
-    <artifactId>ming-online-server</artifactId>
+    <artifactId>ming-online-service</artifactId>
     <version>1.0.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
-    <name>ming-online-server</name>
+    <name>ming-online-service</name>
     <url>https://gitee.com/Jrick</url>
 
     <properties>
@@ -24,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>ming</groupId>
-            <artifactId>ming-online-service</artifactId>
+            <artifactId>ming-framework</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
@@ -40,7 +39,7 @@
     </dependencies>
 
     <build>
-        <finalName>ming-online-server</finalName>
+        <finalName>ming-online-service</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -63,4 +62,6 @@
             </resource>
         </resources>
     </build>
+
+
 </project>

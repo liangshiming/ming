@@ -1,6 +1,7 @@
 package ming.online.service;
 
 import ming.framework.core.service.BaseService;
+import ming.online.dto.TestDto;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TestService extends BaseService {
-    public String test(String agrs) {
+    public String test(TestDto dto) {
         return "hello world";
     }
 }

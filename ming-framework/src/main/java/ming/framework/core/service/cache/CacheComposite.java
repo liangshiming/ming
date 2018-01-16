@@ -74,7 +74,7 @@ public class CacheComposite implements CacheProvider {
         } else if (providerMap.containsKey(cacheType)) {
             providerMap.get(cacheType).forceInit();
         } else {
-            throw new RuleException(providerMap, "»º´æÀàÐÍ");
+            throw new RuleException(providerMap, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
     }
 

@@ -8,17 +8,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Json¹¤¾ßÀà
+ * Jsonå·¥å…·ç±»
  * Created by Jrick on 2018/1/1.
  */
 @Slf4j
 public class JsonUtil {
 
-    private static final String ERR_TEXT_TO_OBJ = "×ª»¯jsonµ½¶ÔÏó·¢ÉúÒì³£";
-    private static final String ERR_TEXT_TO_JSON = "×ª»¯¶ÔÏóµ½json·¢ÉúÒì³£";
+    private static final String ERR_TEXT_TO_OBJ = "è½¬åŒ–jsonåˆ°å¯¹è±¡å‘ç”Ÿå¼‚å¸¸";
+    private static final String ERR_TEXT_TO_JSON = "è½¬åŒ–å¯¹è±¡åˆ°jsonå‘ç”Ÿå¼‚å¸¸";
 
     private static ObjectMapper mapper = new ObjectMapper();
-
     static {
         mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
     }

@@ -1,12 +1,9 @@
 package ming.framework.core.po;
 
-import java.util.Date;
-
 import lombok.Data;
 
-/**
- * Created by Jrick on 2018/1/11.
- */
+import java.util.Date;
+
 @Data
 public class ServiceApi {
     private String apiId;
@@ -38,4 +35,5 @@ public class ServiceApi {
     private Date createTime;
 
     private Date lastUpdateTime;
+
 }

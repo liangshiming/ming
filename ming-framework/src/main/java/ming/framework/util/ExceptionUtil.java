@@ -3,7 +3,7 @@ package ming.framework.util;
 import org.slf4j.Logger;
 
 /**
- * “Ï≥£¥¶¿Ìπ§æﬂ¿‡
+ * ÂºÇÂ∏∏Â§ÑÁêÜÁ±ª
  * Created by Jrick on 2018/1/1.
  */
 public class ExceptionUtil {
