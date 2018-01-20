@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="GBK"?>
+<configuration>
+	<contextName>ming-online-server</contextName>
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-4relative [%thread] %-5level %logger:%L%n %msg%n</pattern>
+			<charset>GBK</charset>
+		</encoder>
+	</appender>
+
+	<appender name="logfile_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<Prudent>true</Prudent>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				/app/log/${CONTEXT_NAME}/error/${HOSTNAME}.${CONTEXT_NAME}.%d{yyyy-MM-dd-HH}.error.log
+			</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>
+				<![CDATA[
+				%d{HH:mm:ss.SSS} [%replace(%thread){" for queue: 'weblogic.kernel.Default \(self-tuning\)'",''}] %level %logger:%L%n %msg %n
+				]]>
+			</Pattern>
+			<charset>GBK</charset>
+		</encoder>
+	</appender>
+
+	<appender name="logfile_debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<Prudent>true</Prudent>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				/app/log/${CONTEXT_NAME}/debug/${HOSTNAME}.${CONTEXT_NAME}.%d{yyyy-MM-dd-HH}.debug.log
+			</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>
+				<![CDATA[
+					%d{HH:mm:ss.SSS} [%replace(%thread){" for queue: 'weblogic.kernel.Default \(self-tuning\)'",''}] %level %logger:%L - %n%msg %n
+					]]>
+			</Pattern>
+			<charset>GBK</charset>
+		</encoder>
+	</appender>
+	<!-- DEBUG,INFO,WARN -->
+	<root level="DEBUG">
+		<appender-ref ref="console" />
+		<appender-ref ref="logfile_error" />
+		<appender-ref ref="logfile_debug" />
+	</root>
+
+	<logger name="ming.online" level="DEBUG" />
+	<logger name="java.sql" level="DEBUG" />
+	<logger name="org.apache.camel" level="ERROR" />
+	<logger name="org.apache.activemq.transport" level="INFO"/>
+	<logger name="org.mybatis.spring.SqlSessionUtils" level="ERROR"/>
+	<logger name="org.mybatis.spring.transaction" level="ERROR"/>
+</configuration>
