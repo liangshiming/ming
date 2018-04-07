@@ -1,10 +1,10 @@
 package ming.framework.util;
 
-import java.util.Collection;
-import java.util.Map;
-
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
+
+import java.util.Collection;
+import java.util.Map;
 /**
  * Created by Jrick on 2018/1/11.
  */

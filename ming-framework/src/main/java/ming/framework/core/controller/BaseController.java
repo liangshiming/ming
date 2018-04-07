@@ -3,7 +3,6 @@ package ming.framework.core.controller;
 import lombok.extern.slf4j.Slf4j;
 import ming.framework.constant.RequestConst;
 import ming.framework.core.po.ServiceApi;
-import ming.framework.core.service.cache.CacheService;
 import ming.framework.util.BeanFactory;
 import ming.framework.util.CollectionUtil;
 import ming.framework.util.JsonUtil;
@@ -13,7 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -27,8 +25,6 @@ import java.util.Map;
 @Slf4j
 public abstract class BaseController {
 
-    @Resource
-    private CacheService cacheService;
 
     protected String handle(HttpServletRequest request) {
         List<MultipartFile> fileList = null;
@@ -66,8 +62,7 @@ public abstract class BaseController {
     private Object callService(List<MultipartFile> file, Map<String, Object> paramMap) {
         String apiName = MapUtils.getString(paramMap, RequestConst.API_NAME);
         String apiVersion = MapUtils.getString(paramMap, RequestConst.API_VERSION);
-        ServiceApi serviceApi = cacheService.getServiceApi(apiName, apiVersion);
-
+        ServiceApi serviceApi = null;
         String paramClass = getParamClass(serviceApi);
         Object req = JsonUtil.toObj(JsonUtil.toJson(paramMap), paramClass);
         log.info("==========>调用接口 : {} , \n请求参数 : {}", JsonUtil.toJson(serviceApi), JsonUtil.toJson(req));
