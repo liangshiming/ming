@@ -22,5 +22,6 @@
 
     <modules>
         <module>ming-framework</module>
+        <module>db</module>
     </modules>
 </project>

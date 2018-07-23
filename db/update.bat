@@ -1,0 +1,1 @@
+mvn dbdeploy:update -Ddb.url=jdbc:oracle:thin:@10.10.200.45:1521:testbhjr -Ddb.usr=bis -Ddb.pwd=bis > bissql.log
