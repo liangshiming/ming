@@ -6,7 +6,8 @@ Vue.use(Router)
 import Layout from '@/views/layout/Layout'
 
 export const constantRouterMap = [
-  {
+    { path: '/login', component: () => import('@/views/login/index'), hidden: true },
+    {
     path: '',
     component: Layout,
     redirect: 'dashboard',
@@ -25,18 +26,18 @@ export const constantRouterMap = [
     redirect: '/project/index',
     meta: {
       title: '项目',
-      icon: 'bank'
+      icon: 'company'
     },
     children: [{
       path: 'index',
       component: () => import('@/views/project/projectManage'),
       name: '项目管理',
-      meta: {title: '项目管理', icon: 'gavel'}
+      meta: {title: '项目管理', icon: 'card-list'}
     }, {
       path: 'product',
       component: () => import('@/views/project/projectAnalysis'),
       name: '项目统计',
-      meta: {title: '项目统计', icon: 'address-card'}
+      meta: {title: '项目统计', icon: 'card-image'}
     }]
   }
 ]
