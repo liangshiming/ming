@@ -5,11 +5,11 @@ package ming.framework.exception;
  */
 public class RuleException extends RuntimeException {
 
-    private final transient Object body;
-    private final String[] parameterArr;
+	private final transient Object body;
+	private final String[] parameterArr;
 
-    public RuleException(Object body, String... parameterArr) {
-        this.body = body;
-        this.parameterArr = parameterArr;
-    }
+	public RuleException(Object body, String... parameterArr) {
+		this.body = body;
+		this.parameterArr = parameterArr;
+	}
 }
