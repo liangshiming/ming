@@ -6,7 +6,7 @@
              :collapse="isCollapse"
              background-color="#545c64"
              text-color="#fff"
-             active-text-color="#ffd04b">
+             active-text-color="#409EFF">
       <sidebar-item :routes='routes'></sidebar-item>
     </el-menu>
   </el-scrollbar>
