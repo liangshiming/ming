@@ -88,13 +88,13 @@
           'graphCode': this.loginGraphCode
         };
         let _this = this;
-        this.ajax(this.apiName.login, this.serviceType().api, param, function (responseData) {
+        this.ajax(this.apiName.login, this.serviceType().api, param, method (responseData) {
           _this.setSessionStorage("token", responseData.token);
           _this.setSessionStorage('operator', responseData.operator);
           _this.$router.push({
             path: '/'
           });
-        }, function (responseData) {
+        }, method (responseData) {
           _this.errorMessage(responseData);
           _this.getPermitGraphCode();
         });

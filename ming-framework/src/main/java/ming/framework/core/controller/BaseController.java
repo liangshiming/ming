@@ -60,13 +60,13 @@ public abstract class BaseController {
 		log.info("==========>调用接口 : {} , \n请求参数 : {}", JsonUtil.toJson(serviceApi), JsonUtil.toJson(req));
 
 		Object service = getBean(serviceApi.getService());
-		Object result = ReflectUtil.invoke(service, serviceApi.getFunction(), req);
+		Object result = ReflectUtil.invoke(service, serviceApi.getMethod(), req);
 		return result;
 	}
 
 	private String getParamClass(ServiceApi serviceApi) {
 		Object service = getBean(serviceApi.getService());
-		Method method = ReflectUtil.getMethod(service.getClass(), serviceApi.getFunction());
+		Method method = ReflectUtil.getMethod(service.getClass(), serviceApi.getMethod());
 		return method.getParameterTypes()[0].getName();
 	}
 

@@ -6,7 +6,7 @@
         <result column="API_NAME" jdbcType="VARCHAR" property="apiName"/>
         <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
         <result column="SERVICE" jdbcType="VARCHAR" property="service"/>
-        <result column="FUNCTION" jdbcType="VARCHAR" property="function"/>
+        <result column="FUNCTION" jdbcType="VARCHAR" property="method"/>
         <result column="API_VERSION" jdbcType="VARCHAR" property="apiVersion"/>
         <result column="STATUS" jdbcType="VARCHAR" property="status"/>
         <result column="REMARK" jdbcType="VARCHAR" property="remark"/>

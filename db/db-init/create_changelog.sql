@@ -1,11 +1,8 @@
-create table CHANGELOG
+create table changelog
 (
-  CHANGE_NUMBER NUMBER(22) not null,
-  COMPLETE_DT   TIMESTAMP(6) not null,
-  APPLIED_BY    VARCHAR2(100) not null,
-  DESCRIPTION   VARCHAR2(500) not null
-)
-/
-
-alter table CHANGELOG add constraint PK_CHANGELOG primary key (CHANGE_NUMBER) 
-/
+  change_number bigint(22) not null,
+  complete_dt   timestamp(6) not null,
+  applied_by    varchar(100) not null,
+  description   varchar(500) not null
+);
+alter table changelog add constraint pk_changelog primary key (change_number);

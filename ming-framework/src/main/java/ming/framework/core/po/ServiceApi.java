@@ -14,7 +14,7 @@ public class ServiceApi {
 
     private String service;
 
-    private String function;
+    private String method;
 
     private String apiVersion;
 
