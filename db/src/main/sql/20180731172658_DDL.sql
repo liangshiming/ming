@@ -1,22 +1,22 @@
-create table SERVICE_API
+create table service_api
 (
-   API_ID               varchar(32) not null comment '主键',
-   API_NAME             varchar(64) not null comment '接口名称',
-   DESCRIPTION          varchar(512) comment '接口描述',
-   SERVICE              varchar(64) comment '对应Service',
-   METHOD               varchar(64) comment '对应主方法',
-   API_VERSION          varchar(10) comment '接口版本',
-   STATUS               varchar(1) comment '接口状态：0停用，1可用',
-   REMARK               varchar(512) comment '备注',
-   AUTHOR               varchar(32) comment '开发者',
-   NEED_LOGIN           varchar(1) comment '是否需要登录：0不需要，1需要',
-   NEED_TOKEN           varchar(1) comment '是否需要Token：0不需要，1需要',
-   NEED_REQ_TOKEN       varchar(1) comment '是否需要请求Token：0不需要，1需要',
-   NEED_PERMIT          varchar(1) comment '是否需要权限：0不需要，1需要',
-   CREATE_TIME          timestamp comment '创建时间',
-   LAST_UPDATE_TIME     timestamp comment '最近更新时间',
-   primary key (API_ID)
+   api_id               varchar(32) not null comment '主键',
+   api_name             varchar(64) not null comment '接口名称',
+   description          varchar(512) comment '接口描述',
+   service              varchar(64) comment '对应service',
+   method               varchar(64) comment '对应主方法',
+   api_version          varchar(10) comment '接口版本',
+   status               varchar(1) comment '接口状态：0停用，1可用',
+   remark               varchar(512) comment '备注',
+   author               varchar(32) comment '开发者',
+   need_login           varchar(1) comment '是否需要登录：0不需要，1需要',
+   need_token           varchar(1) comment '是否需要token：0不需要，1需要',
+   need_req_token       varchar(1) comment '是否需要请求token：0不需要，1需要',
+   need_permit          varchar(1) comment '是否需要权限：0不需要，1需要',
+   create_time          datetime comment '创建时间',
+   last_update_time     datetime comment '最近更新时间',
+   primary key (api_id)
 )
 /
-alter table SERVICE_API comment '接口总线配置表'
+alter table service_api comment '接口总线配置表'
 /

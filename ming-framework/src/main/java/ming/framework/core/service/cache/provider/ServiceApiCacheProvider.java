@@ -1,5 +1,6 @@
 package ming.framework.core.service.cache.provider;
 
+import lombok.extern.slf4j.Slf4j;
 import ming.framework.core.dao.ServiceApiMapper;
 import ming.framework.core.po.ServiceApi;
 import ming.framework.core.service.cache.CacheProvider;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+@Slf4j
 @Service
 public class ServiceApiCacheProvider implements CacheProvider {
 	private static final String TYPE = "SERVICE_API";
@@ -37,6 +39,7 @@ public class ServiceApiCacheProvider implements CacheProvider {
 
 	@Override
 	public synchronized void forceInit() {
+		log.debug("初始化缓存:{}", getType());
 		List<ServiceApi> list = serviceApiMapper.selectAll();
 		cacheMap = ReflectUtil.reflectToMap(list, "apiName", "apiVersion");
 	}

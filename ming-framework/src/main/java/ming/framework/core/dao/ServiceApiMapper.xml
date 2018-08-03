@@ -6,7 +6,7 @@
         <result column="API_NAME" jdbcType="VARCHAR" property="apiName"/>
         <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
         <result column="SERVICE" jdbcType="VARCHAR" property="service"/>
-        <result column="FUNCTION" jdbcType="VARCHAR" property="method"/>
+        <result column="METHOD" jdbcType="VARCHAR" property="method"/>
         <result column="API_VERSION" jdbcType="VARCHAR" property="apiVersion"/>
         <result column="STATUS" jdbcType="VARCHAR" property="status"/>
         <result column="REMARK" jdbcType="VARCHAR" property="remark"/>
@@ -19,7 +19,7 @@
         <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-    API_ID, API_NAME, DESCRIPTION, SERVICE, FUNCTION, API_VERSION, STATUS, REMARK, AUTHOR, 
+    API_ID, API_NAME, DESCRIPTION, SERVICE, METHOD, API_VERSION, STATUS, REMARK, AUTHOR,
     NEED_LOGIN, NEED_TOKEN, NEED_REQ_TOKEN, NEED_PERMIT, CREATE_TIME, LAST_UPDATE_TIME
   </sql>
     <select id="selectAll" resultMap="BaseResultMap">

@@ -23,5 +23,7 @@
     <modules>
         <module>ming-framework</module>
         <module>db</module>
+        <module>ming-admin-service</module>
+        <module>ming-admin-server</module>
     </modules>
 </project>

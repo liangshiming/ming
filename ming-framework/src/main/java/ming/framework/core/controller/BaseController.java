@@ -27,14 +27,9 @@ public abstract class BaseController {
 	private CacheService cacheService;
 
 	protected String request(HttpServletRequest request) {
-		Map<String, Object> paramMap = getParamMap(request);
+		Map<String, Object> paramMap = initParamMap(request);
 		String jsonRes = JsonUtil.toJson(callService(paramMap));
 		return jsonRes;
-	}
-
-	private Map<String, Object> getParamMap(HttpServletRequest request) {
-		Map<String, Object> paramMap = initParamMap(request);
-		return paramMap;
 	}
 
 	private Map<String, Object> initParamMap(HttpServletRequest request) {
@@ -57,8 +52,8 @@ public abstract class BaseController {
 		ServiceApi serviceApi = cacheService.getServiceApi(apiName, apiVersion);
 		String paramClass = getParamClass(serviceApi);
 		Object req = JsonUtil.toObj(JsonUtil.toJson(paramMap), paramClass);
-		log.info("==========>调用接口 : {} , \n请求参数 : {}", JsonUtil.toJson(serviceApi), JsonUtil.toJson(req));
-
+		log.info("====>调用接口 : {}-{}", serviceApi.getApiName(), serviceApi.getDescription());
+		log.info("====>请求参数 : {}", JsonUtil.toJson(req));
 		Object service = getBean(serviceApi.getService());
 		Object result = ReflectUtil.invoke(service, serviceApi.getMethod(), req);
 		return result;
