@@ -1,6 +1,8 @@
 package ming.admin.interceptor;
 
 import ming.admin.vo.base.TransRes;
+import ming.framework.constant.errcode.ErrorCode;
+import ming.framework.constant.errcode.ErrorCodeSys;
 import ming.framework.exception.BaseExceptionInterceptor;
 import ming.framework.exception.SystemException;
 import org.springframework.http.HttpStatus;
@@ -19,8 +21,8 @@ public class AdminExceptionInterceptor extends BaseExceptionInterceptor<TransRes
 	@Override
 	protected TransRes buildResForException(Exception ex) {
 		TransRes res = new TransRes();
-		res.setResultCode("SYS_ERROR");
-		res.setMessage(ex.getMessage());
+		res.setResultCode(ErrorCodeSys.SYS_ERR.toString());
+		res.setMessage(formatMessage(ex));
 		res.setTimestamp(new Date());
 		return res;
 	}
@@ -28,8 +30,8 @@ public class AdminExceptionInterceptor extends BaseExceptionInterceptor<TransRes
 	@Override
 	protected TransRes buildResForRuleException(SystemException ex) {
 		TransRes res = new TransRes();
-		res.setResultCode("BUSINESS_ERROR");
-		res.setMessage(ex.getMessage());
+		res.setResultCode(ex.getCode());
+		res.setMessage(formatMessage(ex));
 		res.setTimestamp(new Date());
 		return res;
 	}

@@ -1,7 +1,9 @@
 package ming.framework.core.service.cache;
 
+import ming.framework.core.po.ErrorCode;
 import ming.framework.core.po.ServiceApi;
 import ming.framework.core.service.cache.base.BaseCacheService;
+import ming.framework.core.service.cache.provider.ErrorCodeCacheProvider;
 import ming.framework.core.service.cache.provider.ServiceApiCacheProvider;
 import ming.framework.util.StrUtil;
 import org.springframework.stereotype.Service;
@@ -39,5 +41,8 @@ public class CacheService extends BaseCacheService {
 		String key = StrUtil.join(apiName, apiVersion);
 		ServiceApi config = getProvider(ServiceApiCacheProvider.class).get().get(key);
 		return config;
+	}
+	public ErrorCode getErrorCode(String code) {
+		return getProvider(ErrorCodeCacheProvider.class).get().get(code);
 	}
 }
