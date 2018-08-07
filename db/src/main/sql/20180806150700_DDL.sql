@@ -1,4 +1,4 @@
-create table error_code
+create table sys_error_code
 (
    err_code             varchar(100) not null comment '错误码',
    message              varchar(128) not null comment '错误信息',
@@ -8,5 +8,5 @@ create table error_code
    primary key (err_code)
 )
 /
-alter table error_code comment '错误码表'
+alter table sys_error_code comment '错误码表'
 /

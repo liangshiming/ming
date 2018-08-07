@@ -1,7 +1,7 @@
-package ming.service.login;
+package ming.service.permit;
 
 import lombok.extern.slf4j.Slf4j;
-import ming.dto.login.LoginDto;
+import ming.dto.permit.login.LoginDto;
 import org.springframework.stereotype.Service;
 
 @Slf4j

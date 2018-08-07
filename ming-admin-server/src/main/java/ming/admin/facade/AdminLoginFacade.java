@@ -2,8 +2,8 @@ package ming.admin.facade;
 
 import ming.admin.vo.base.TransReq;
 import ming.admin.vo.base.TransRes;
-import ming.dto.login.LoginDto;
-import ming.service.login.LoginService;
+import ming.dto.permit.login.LoginDto;
+import ming.service.permit.LoginService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -32,7 +32,7 @@ public class ErrCodeService {
 	}
 
 	private String formatSystemException(SystemException ex) {
-		String message = this.formatMessage(ex.getCode());
+		String message = this.formatMessage(ex.getCode(), ex.getParamArr());
 		log.info("[系统异常]==>:" + message, ex);
 		return message;
 	}
@@ -43,13 +43,14 @@ public class ErrCodeService {
 		return message;
 	}
 
-	private String formatMessage(String errCode) {
+	private String formatMessage(String errCode, String... paramArr) {
 		ErrorCode errorCodeConfig = cacheService.getErrorCode(errCode);
 		if (errorCodeConfig == null) {
 			log.error("对应ERROR_CODE不存在   " + errCode);
 			return errCode;
 		} else {
-			return errorCodeConfig.getMessage();
+			String template = errorCodeConfig.getMessage();
+			return paramArr != null && paramArr.length > 0 ? String.format(template, paramArr) : template;
 		}
 	}
 }

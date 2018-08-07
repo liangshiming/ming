@@ -1,4 +1,4 @@
-create table service_api
+create table sys_service_api
 (
    api_id               varchar(32) not null comment '主键',
    api_name             varchar(64) not null comment '接口名称',
@@ -18,5 +18,5 @@ create table service_api
    primary key (api_id)
 )
 /
-alter table service_api comment '接口总线配置表'
+alter table sys_service_api comment '接口总线配置表'
 /

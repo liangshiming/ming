@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ming.dao.PermitMapper">
+  <resultMap id="BaseResultMap" type="ming.po.permit.Permit">
+    <id column="permit_id" jdbcType="VARCHAR" property="permitId" />
+    <result column="parent_permit_id" jdbcType="VARCHAR" property="parentPermitId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    permit_id, parent_permit_id, name, icon, url, status, create_time, last_update_time
+  </sql>
+  <select id="selectById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pmt_permit
+    where permit_id = #{permitId,jdbcType=VARCHAR}
+  </select>
+  <delete id="delete" parameterType="java.lang.String">
+    delete from pmt_permit
+    where permit_id = #{permitId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="ming.po.permit.Permit">
+    insert into pmt_permit (permit_id, parent_permit_id, name, 
+      icon, url, status, 
+      create_time, last_update_time)
+    values (#{permitId,jdbcType=VARCHAR}, #{parentPermitId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{icon,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateTime,jdbcType=TIMESTAMP})
+  </insert>
+
+  <update id="update" parameterType="ming.po.permit.Permit">
+    update pmt_permit
+    <set>
+      <if test="parentPermitId != null">
+        parent_permit_id = #{parentPermitId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where permit_id = #{permitId,jdbcType=VARCHAR}
+  </update>
+</mapper>

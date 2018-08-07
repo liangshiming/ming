@@ -1,4 +1,4 @@
-package ming.dto.login;
+package ming.dto.permit;
 
 public class LoginDto {
 

@@ -25,7 +25,7 @@
     <select id="selectAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from service_api
+        from sys_service_api
         where status = '1'
     </select>
 </mapper>

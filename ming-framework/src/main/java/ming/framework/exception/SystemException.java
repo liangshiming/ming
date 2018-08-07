@@ -10,14 +10,17 @@ import ming.framework.constant.errcode.ErrorCode;
 public class SystemException extends RuntimeException {
 
 	private String code;
+	private String[] paramArr;
 
-	public SystemException(ErrorCode errorCode, Throwable ex) {
+	public SystemException(ErrorCode errorCode, Throwable ex, String... paramArr) {
 		super(errorCode + "[" + ex.getCause() + "]", ex);
 		this.code = errorCode.toString();
+		this.paramArr = paramArr;
 	}
 
-	public SystemException(ErrorCode errorCode) {
+	public SystemException(ErrorCode errorCode, String... paramArr) {
 		super(errorCode.toString());
 		this.code = errorCode.toString();
+		this.paramArr = paramArr;
 	}
 }
