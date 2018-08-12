@@ -5,13 +5,24 @@
     <id column="role_id" jdbcType="VARCHAR" property="roleId" />
     <id column="permit_id" jdbcType="VARCHAR" property="permitId" />
   </resultMap>
-  <delete id="delete" parameterType="map">
+  <delete id="deleteByRoleId" parameterType="java.lang.String">
     delete from pmt_role_permit
     where role_id = #{roleId,jdbcType=VARCHAR}
-      and permit_id = #{permitId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="ming.po.permit.RolePermit">
     insert into pmt_role_permit (role_id, permit_id)
     values (#{roleId,jdbcType=VARCHAR}, #{permitId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="batchInsert" parameterType="java.util.List">
+    begin
+
+    <foreach item="rolePermit" index="index" collection="list"
+             separator=";">
+      insert into pmt_role_permit (role_id, permit_id)
+      values (#{rolePermit.roleId,jdbcType=VARCHAR}, #{rolePermit.permitId,jdbcType=VARCHAR})
+    </foreach>
+    ;
+    end ;
+
   </insert>
 </mapper>

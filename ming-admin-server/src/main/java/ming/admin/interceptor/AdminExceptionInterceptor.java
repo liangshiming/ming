@@ -1,7 +1,6 @@
 package ming.admin.interceptor;
 
 import ming.admin.vo.base.TransRes;
-import ming.framework.constant.errcode.ErrorCode;
 import ming.framework.constant.errcode.ErrorCodeSys;
 import ming.framework.exception.BaseExceptionInterceptor;
 import ming.framework.exception.SystemException;

@@ -10,4 +10,6 @@ public interface RoleMapper {
     int update(Role record);
 
     Role selectById(String roleId);
+
+    Role selectByRoleName(String roleName);
 }

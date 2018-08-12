@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ming.dao.PermitMapper">
+<mapper namespace="ming.dao.permit.PermitMapper">
   <resultMap id="BaseResultMap" type="ming.po.permit.Permit">
     <id column="permit_id" jdbcType="VARCHAR" property="permitId" />
     <result column="parent_permit_id" jdbcType="VARCHAR" property="parentPermitId" />

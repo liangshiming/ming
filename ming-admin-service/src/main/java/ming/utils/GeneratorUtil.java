@@ -14,7 +14,7 @@ public class GeneratorUtil {
 		String jdbcPassword = "ming";
 		Map<String,String> tableModelNames= new HashMap<>();
 //		tableModelNames.put("pmt_user","User");
-//		tableModelNames.put("pmt_user_role","UseRole");
+//		tableModelNames.put("pmt_user_role","UserRole");
 //		tableModelNames.put("pmt_role","Role");
 //		tableModelNames.put("pmt_role_permit","RolePermit");
 //		tableModelNames.put("pmt_permit","Permit");

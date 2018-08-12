@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ming.dao.query.QueryPermitMapper">
+  <resultMap id="BaseResultMap" type="ming.po.permit.Permit">
+    <id column="permit_id" jdbcType="VARCHAR" property="permitId" />
+    <result column="parent_permit_id" jdbcType="VARCHAR" property="parentPermitId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    permit_id, parent_permit_id, name, icon, url, status, create_time, last_update_time
+  </sql>
+  <select id="selectPermitListByRoleId" parameterType="java.lang.String" resultType="ming.po.permit.Permit">
+    select 
+    <include refid="Base_Column_List" />
+    from pmt_permit
+    where permit_id = #{permitId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectPermitListByUserId" parameterType="java.lang.String" resultType="ming.po.permit.Permit">
+    select
+        p.permit_id as permitId,
+        p.parent_permit_id as parentPermitId,
+        p.name as name,
+        p.icon as icon,
+        p.url as url,
+        p.status as status,
+        p.create_time as createTime,
+        p.last_update_time as lastUpdateTime
+    from pmt_permit p
+    left join pmt_role_permit r on r.permit_id = p.permit_id
+    left join pmt_user_role u on u.role_id = r.role_id
+    where
+	u.user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

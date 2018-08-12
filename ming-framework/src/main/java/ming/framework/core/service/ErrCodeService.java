@@ -43,7 +43,7 @@ public class ErrCodeService {
 		return message;
 	}
 
-	private String formatMessage(String errCode, String... paramArr) {
+	public String formatMessage(String errCode, String... paramArr) {
 		ErrorCode errorCodeConfig = cacheService.getErrorCode(errCode);
 		if (errorCodeConfig == null) {
 			log.error("对应ERROR_CODE不存在   " + errCode);

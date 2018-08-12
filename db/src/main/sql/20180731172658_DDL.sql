@@ -15,7 +15,8 @@ create table sys_service_api
    need_permit          varchar(1) comment '是否需要权限：0不需要，1需要',
    create_time          datetime comment '创建时间',
    last_update_time     datetime comment '最近更新时间',
-   primary key (api_id)
+   primary key (api_id),
+   unique key un_api_name (api_name)
 )
 /
 alter table sys_service_api comment '接口总线配置表'

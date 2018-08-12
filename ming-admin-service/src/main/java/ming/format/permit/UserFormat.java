@@ -18,4 +18,11 @@ public class UserFormat {
 		Validator.notMatch(userName, USER_NAME_PATTERN, ErrorCodeSys.PARAM_NOT_NULL, "用户名称");
 
 	}
+
+	public static void validatePassword(String password, String passwordConfirm) {
+		Validator.notBlank(password, ErrorCodeSys.PARAM_NOT_NULL, "新密码");
+		Validator.notBlank(passwordConfirm, ErrorCodeSys.PARAM_NOT_NULL, "确认密码");
+		Validator.isEqual(password, passwordConfirm, ErrorCodeSys.PARAM_NOT_EQUAL, "新密码","确认密码");
+
+	}
 }

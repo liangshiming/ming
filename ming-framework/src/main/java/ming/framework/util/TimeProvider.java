@@ -11,9 +11,4 @@ public class TimeProvider {
 		return new Date();
 	}
 
-	public void setTime(Date time) {
-	}
-
-	public void restore() {
-	}
 }

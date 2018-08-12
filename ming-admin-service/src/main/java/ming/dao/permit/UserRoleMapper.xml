@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ming.dao.permit.UserRoleMapper">
+  <resultMap id="BaseResultMap" type="ming.po.permit.UserRole">
+    <id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <id column="role_id" jdbcType="VARCHAR" property="roleId" />
+  </resultMap>
+  <delete id="deleteByUserId" parameterType="java.lang.String">
+    delete from pmt_user_role
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="ming.po.permit.UserRole">
+    insert into pmt_user_role (user_id, role_id)
+    values (#{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="batchInsert" parameterType="java.util.List">
+    begin
+
+    <foreach item="userRole" index="index" collection="list"
+             separator=";">
+      insert into pmt_user_role (user_id, role_id)
+      values
+      (#{userRole.userId,jdbcType=VARCHAR}, #{userRole.roleId,jdbcType=VARCHAR})
+    </foreach>
+    ;
+    end ;
+
+  </insert>
+</mapper>
