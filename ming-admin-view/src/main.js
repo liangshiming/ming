@@ -1,5 +1,3 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import 'normalize.css/normalize.css'// A modern alternative to CSS resets
@@ -8,10 +6,17 @@ import './icons'
 
 import router from './router'
 import store from './store'
+import './permission' // permission control
+import './router/formatRouter'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-// import './permission' // permission control
+import * as project from './common/js/project.js'
+import * as projectPath from './common/js/projectPath.js'
+import * as common from './common/js/common/common.js'
+import * as filterCommon from './common/js/common/filterFunc.js'
+import * as netWork from './common/js/common/netWork.js'
+import './common/js/common/validate.js'
 
 Vue.use(ElementUI)
 
@@ -22,5 +27,11 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
+  template: '<App/>',
+  components: {
+    App, project, projectPath, filterCommon, common, netWork
+  },
+  data: {
+    eventHub: new Vue()
+  }
 })

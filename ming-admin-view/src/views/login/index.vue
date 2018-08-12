@@ -75,7 +75,7 @@
       }
     },
     mounted() {
-      this.getPermitGraphCode();
+      // this.getPermitGraphCode();
     },
     methods: {
       getPermitGraphCode() {
@@ -83,18 +83,18 @@
       },
       handleLogin() {
         let param = {
-          'operator': this.userName,
+          'userId': this.userName,
           'password': this.password,
-          'graphCode': this.loginGraphCode
+          'verifyCode': this.loginGraphCode
         };
         let _this = this;
-        this.ajax(this.apiName.login, this.serviceType().api, param, method (responseData) {
+        this.ajax(this.apiName.login, this.serviceType().api, param, function (responseData) {
           _this.setSessionStorage("token", responseData.token);
-          _this.setSessionStorage('operator', responseData.operator);
+          _this.setSessionStorage('userId', responseData.userId);
           _this.$router.push({
             path: '/'
           });
-        }, method (responseData) {
+        }, function (responseData) {
           _this.errorMessage(responseData);
           _this.getPermitGraphCode();
         });
