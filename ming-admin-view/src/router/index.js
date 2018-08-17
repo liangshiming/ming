@@ -11,8 +11,9 @@ import Layout from '../views/layout/Layout'
 //初始化component路径
 Vue.prototype.initComponent = function () {
   var supportRouter = new Map();
-  supportRouter.set("projectAnalysis", _import('project/projectAnalysis'));
-  supportRouter.set("projectManage", _import('project/projectManage'));
+  supportRouter.set("userManage", _import('permit/userManage'));
+  supportRouter.set("roleManage", _import('permit/roleManage'));
+  supportRouter.set("permitManage", _import('permit/permitManage'));
   return supportRouter;
 }
 

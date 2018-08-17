@@ -125,7 +125,7 @@ Vue.prototype.doAjax = function (apiType, serviceType, params, cbfunc, errorfunc
       });
       return;
     } else if (resultCode !== this.requestStatus().success && errorfunc) {
-      errorfunc(responseData);
+      errorfunc(responseData.data);
       return;
     } else {
       this.$message.error(message);

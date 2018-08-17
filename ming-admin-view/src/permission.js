@@ -10,8 +10,8 @@ NProgress.configure({showSpinner: false})// NProgress Configuration
 
 router.beforeEach((to, from, next) => {
   NProgress.start() // start progress bar
-  let userId = Vue.prototype.getSessionStorage("userId");
-  if (userId) { // determine if there has token
+  let operator = Vue.prototype.getSessionStorage("operator");
+  if (operator) { // determine if there has token
     if (to.path === '/login') {
       next('/')
       NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it

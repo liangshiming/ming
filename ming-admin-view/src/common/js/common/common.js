@@ -151,7 +151,7 @@ Vue.prototype.$messages = function (value) {
   });
 };
 Vue.prototype.errorMessage = function (responseData) {
-  let message = responseData.data.message;
+  let message = responseData.message;
   const h = this.$createElement;
   this.$msgbox({
     title: "提示",

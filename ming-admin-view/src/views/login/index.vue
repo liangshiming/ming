@@ -24,7 +24,7 @@
         <el-input name="graphCode" style="width:40%;" type="graphCode" @keyup.enter.native="handleLogin"
                   v-model="loginGraphCode" autoComplete="on" placeholder="验证码">
         </el-input>
-        <img src="/static/graphCode.jpeg" style="float: right;padding: 6px">
+        <img v-bind:src="graphCodeUrl" style="float: right;padding: 6px" @click="getPermitGraphCode()">
       </el-form-item>
       <el-form-item>
         <el-button type="primary" style="width:330px" :loading="loading" @click.native.prevent="handleLogin">
@@ -75,7 +75,7 @@
       }
     },
     mounted() {
-      // this.getPermitGraphCode();
+      this.getPermitGraphCode();
     },
     methods: {
       getPermitGraphCode() {
@@ -83,14 +83,14 @@
       },
       handleLogin() {
         let param = {
-          'userId': this.userName,
+          'operator': this.userName,
           'password': this.password,
           'verifyCode': this.loginGraphCode
         };
         let _this = this;
         this.ajax(this.apiName.login, this.serviceType().api, param, function (responseData) {
-          _this.setSessionStorage("token", responseData.token);
-          _this.setSessionStorage('userId', responseData.userId);
+          _this.setSessionStorage("loginToken", responseData.token);
+          _this.setSessionStorage('operator', responseData.operator);
           _this.$router.push({
             path: '/'
           });

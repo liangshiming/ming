@@ -9,14 +9,24 @@ Vue.prototype.apiType = function() {
     fetchReqToken: 'fetchReqToken',
     login: 'login', // 登录
     queryPermitTree: 'queryPermitTree', // 查询菜单
-    modifyPassword: 'modifyPassword', // 修改密码
-    queryDictList: 'queryDictList', // 查看字典项
-    queryParamValue: 'queryParamValue',
-    logout: 'logout',
-    queryConfigPermitTree: 'queryConfigPermitTree', // 查询配置菜单树
-    addPermitMenu: 'addPermitMenu', // 添加菜单
-    modifyPermitMenu: 'modifyPermitMenu', // 修改菜单
-    queryAllDbList: 'queryAllDbList', // 修改菜单
+    queryAllPermitTree: 'queryAllPermitTree', // 查询菜单
+    queryAllUser: 'queryAllUser',
+    queryAllRole: 'queryAllRole',
+    queryAllPermit: 'queryAllPermit',
+    queryUserRoleList:'queryUserRoleList',
+    queryRolePermitList:'queryRolePermitList',
+    userAdd:'userAdd',
+    userModify:'userModify',
+    userRoleModify:'userRoleModify',
+    userDelete:'userDelete',
+    roleAdd:'roleAdd',
+    roleModify:'roleModify',
+    rolePermitModify:'rolePermitModify',
+    roleDelete:'roleDelete',
+    permitAdd:'permitAdd',
+    permitModify:'permitModify',
+    permitDelete:'permitDelete',
+    userRoleList:'userRoleList'
   }
 }
 Vue.prototype.serviceType = function() {
@@ -36,6 +46,6 @@ Vue.prototype.paramBase = function() {
   return {
     apiVersion: '1.0',
     loginToken: this.getSessionStorage('token'),
-    userId: this.getSessionStorage('userId')
+    operator: this.getSessionStorage('operator')
   }
 }
