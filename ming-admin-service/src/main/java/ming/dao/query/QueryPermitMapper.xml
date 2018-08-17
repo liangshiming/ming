@@ -1,27 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ming.dao.query.QueryPermitMapper">
-  <resultMap id="BaseResultMap" type="ming.po.permit.Permit">
-    <id column="permit_id" jdbcType="VARCHAR" property="permitId" />
-    <result column="parent_permit_id" jdbcType="VARCHAR" property="parentPermitId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="icon" jdbcType="VARCHAR" property="icon" />
-    <result column="url" jdbcType="VARCHAR" property="url" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
+    <resultMap id="BaseResultMap" type="ming.po.permit.Permit">
+        <id column="permit_id" jdbcType="VARCHAR" property="permitId"/>
+        <result column="parent_permit_id" jdbcType="VARCHAR" property="parentPermitId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     permit_id, parent_permit_id, name, icon, url, status, create_time, last_update_time
   </sql>
-  <select id="selectPermitListByRoleId" parameterType="java.lang.String" resultType="ming.po.permit.Permit">
-    select 
-    <include refid="Base_Column_List" />
-    from pmt_permit
-    where permit_id = #{permitId,jdbcType=VARCHAR}
-  </select>
+    <select id="selectAllPermitList" parameterType="java.lang.String" resultType="ming.po.permit.Permit">
+        select
+            permit_id as permitId,
+            parent_permit_id as parentPermitId,
+            name as name,
+            icon as icon,
+            url as url,
+            status as status,
+            create_time as createTime,
+            last_update_time as lastUpdateTime
+        from pmt_permit
+        <where>
+            <if test="permitId!=null and permitId!=''">
+                permit_id =#{permitId,jdbcType=VARCHAR}
+            </if>
+            <if test="permitId!=null and permitId!=''">
+                and parent_permit_id =#{permitParentId,jdbcType=VARCHAR}
+            </if>
+            <if test="name!=null and name!=''">
+                and name like concat('%',#{name,jdbcType=VARCHAR},'%')
+            </if>
+            <if test="status!=null and status!=''">
+                and status = #{status,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <select id="selectPermitListByRoleId" parameterType="java.lang.String" resultType="ming.po.permit.Permit">
+        select
+        <include refid="Base_Column_List"/>
+        from pmt_permit
+        where permit_id = #{permitId,jdbcType=VARCHAR}
+    </select>
 
-  <select id="selectPermitListByUserId" parameterType="java.lang.String" resultType="ming.po.permit.Permit">
+    <select id="selectPermitListByUserId" parameterType="java.lang.String" resultType="ming.po.permit.Permit">
     select
         p.permit_id as permitId,
         p.parent_permit_id as parentPermitId,

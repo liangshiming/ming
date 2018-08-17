@@ -115,7 +115,7 @@ public class RoleService {
 
 	private void updateRolePermitList(RolePermitDto rolePermitDto) {
 		rolePermitMapper.deleteByRoleId(rolePermitDto.getRoleId());
-		if(CollectionUtil.isNotEmpty(rolePermitDto.getPermitList())) {
+		if (CollectionUtil.isNotEmpty(rolePermitDto.getPermitList())) {
 			List<RolePermit> rolePermitList = buildRolePermitList(rolePermitDto);
 			rolePermitMapper.batchInsert(rolePermitList);
 		}
@@ -125,7 +125,7 @@ public class RoleService {
 		String roleId = rolePermitDto.getRoleId();
 		List<String> permitList = rolePermitDto.getPermitList();
 		List<RolePermit> rolePermitList = new ArrayList<>();
-		for (String permitId : permitList){
+		for (String permitId : permitList) {
 			RolePermit rolePermit = new RolePermit();
 			rolePermit.setRoleId(roleId);
 			rolePermit.setPermitId(permitId);
@@ -133,4 +133,5 @@ public class RoleService {
 		}
 		return rolePermitList;
 	}
+
 }

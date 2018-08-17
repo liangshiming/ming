@@ -13,5 +13,4 @@ public interface RolePermitMapper {
 
 	int deleteByRoleId(@Param("roleId")String roleId);
 
-	List<String> selectByRoleId(@Param("roleId")String roleId);
 }

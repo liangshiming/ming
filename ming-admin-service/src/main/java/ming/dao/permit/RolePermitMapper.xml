@@ -14,15 +14,9 @@
     values (#{roleId,jdbcType=VARCHAR}, #{permitId,jdbcType=VARCHAR})
   </insert>
   <insert id="batchInsert" parameterType="java.util.List">
-    begin
-
-    <foreach item="rolePermit" index="index" collection="list"
-             separator=";">
-      insert into pmt_role_permit (role_id, permit_id)
-      values (#{rolePermit.roleId,jdbcType=VARCHAR}, #{rolePermit.permitId,jdbcType=VARCHAR})
+    insert into pmt_role_permit (role_id, permit_id) values
+    <foreach item="rolePermit" index="index" collection="list" separator=",">
+      (#{rolePermit.roleId,jdbcType=VARCHAR}, #{rolePermit.permitId,jdbcType=VARCHAR})
     </foreach>
-    ;
-    end ;
-
   </insert>
 </mapper>

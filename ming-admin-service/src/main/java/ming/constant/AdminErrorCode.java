@@ -9,6 +9,7 @@ public enum  AdminErrorCode implements ErrorCode {
 	ROLE_NOT_EXIST,
 	ROLE_EXIST,
 	PERMIT_NOT_EXIST,
+	PARENT_PERMIT_NOT_EXIST,
 	PERMIT_EXIST,
 	PERMIT_ID_NOT_MATCH
 }

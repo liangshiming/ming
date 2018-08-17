@@ -46,6 +46,7 @@ public class PermitService {
 	private void validateForAdd(PermitDto permitDto) {
 		PermitFormat.validatePermitId(permitDto.getPermitId());
 		permitValidate.checkPermitIsNotExist(permitDto.getPermitId());
+		permitValidate.checkParentPermitIdIsExist(permitDto.getParentPermitId());
 	}
 
 	private Permit buildPermitForAdd(PermitDto permitDto) {
@@ -70,6 +71,7 @@ public class PermitService {
 	private void validateForModify(PermitDto permitDto) {
 		PermitFormat.validatePermitId(permitDto.getPermitId());
 		permitValidate.checkPermitIsExist(permitDto.getPermitId());
+		permitValidate.checkParentPermitIdIsExist(permitDto.getParentPermitId());
 	}
 
 	private Permit buildPermitForModify(PermitDto permitDto) {

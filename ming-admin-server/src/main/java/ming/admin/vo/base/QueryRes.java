@@ -9,6 +9,6 @@ public class QueryRes <T> extends QueryReq{
 	private String resultCode;
 	private String message;
 	private Date timestamp;
-
+	private String totalSize;
 	private T body;
 }

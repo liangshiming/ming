@@ -7,9 +7,12 @@ import ming.admin.vo.trans.RoleReq;
 import ming.dto.permit.RoleDto;
 import ming.dto.permit.RolePermitDto;
 import ming.service.permit.RoleService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class RoleFacade extends BaseFacade {
@@ -51,8 +54,16 @@ public class RoleFacade extends BaseFacade {
 	private RolePermitDto buildRolePermitDto(RolePermitReq rolePermitReq) {
 		RolePermitDto rolePermitDto = new RolePermitDto();
 		rolePermitDto.setRoleId(rolePermitReq.getRoleId());
-		rolePermitDto.setPermitList(rolePermitReq.getPermitList());
+		rolePermitDto.setPermitList(getPermitIdList(rolePermitReq));
 		return rolePermitDto;
 	}
+	private List<String> getPermitIdList(RolePermitReq rolePermitReq) {
+		String permitIdListStr = rolePermitReq.getPermitListStr();
+		if (StringUtils.isEmpty(permitIdListStr)) {
+			return null;
+		}
+		String[] permitIdArray = permitIdListStr.split(",");
+		return Arrays.asList(permitIdArray);
 
+	}
 }

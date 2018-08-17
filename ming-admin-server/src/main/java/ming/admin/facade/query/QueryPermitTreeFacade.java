@@ -24,9 +24,15 @@ public class QueryPermitTreeFacade extends BaseFacade {
 		return super.buildRes(queryPermitTreeReq, queryPermitListDto.getPermitTreeList());
 	}
 
+	public QueryRes queryAllPermitTree(QueryPermitTreeReq queryPermitTreeReq) {
+		QueryPermitTreeDto queryPermitListDto = buildQueryPermitListDto(queryPermitTreeReq);
+		permitTreeService.queryAllPermitList(queryPermitListDto);
+		return super.buildRes(queryPermitTreeReq, queryPermitListDto.getPermitTreeList());
+	}
+
 	private QueryPermitTreeDto buildQueryPermitListDto(QueryPermitTreeReq queryPermitTreeReq) {
 		QueryPermitTreeDto queryPermitListDto = new QueryPermitTreeDto();
-		queryPermitListDto.setUserId(queryPermitTreeReq.getUserId());
+		queryPermitListDto.setUserId(queryPermitTreeReq.getOperator());
 		return queryPermitListDto;
 	}
 }

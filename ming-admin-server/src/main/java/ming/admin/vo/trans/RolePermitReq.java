@@ -9,5 +9,5 @@ public class RolePermitReq extends TransReq {
 
 	private String roleId;
 
-	private List<String> permitList;
+	private String permitListStr;
 }

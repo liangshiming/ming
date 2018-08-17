@@ -5,7 +5,7 @@ import ming.admin.vo.base.TransReq;
 
 @Data
 public class LoginReq extends TransReq {
-	private String userId;
+	private String operator;
 
 	private String password;
 

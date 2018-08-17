@@ -6,10 +6,14 @@ import ming.po.permit.Permit;
 import java.util.List;
 
 @Data
-public class QueryPermitListDto {
-	private String userId;
+public class QueryPermitListDto extends QueryBaseDto{
+	private String permitId;
 
-	private String roleId;
+	private String parentPermitId;
+
+	private String name;
+
+	private String status;
 
 	private List<Permit> permitList;
 }

@@ -84,7 +84,7 @@ public class UserService {
 	}
 
 	private void validateForDelete(UserDto userDto) {
-		userValidate.checkUserIsNotExist(userDto.getUserId());
+		userValidate.checkUserIsExist(userDto.getUserId());
 	}
 
 	private void validateForModify(UserDto userDto) {

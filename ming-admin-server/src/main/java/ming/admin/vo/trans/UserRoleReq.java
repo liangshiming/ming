@@ -10,5 +10,5 @@ public class UserRoleReq extends TransReq {
 
 	private String userId;
 
-	private List<String> roleList;
+	private String roleListStr;
 }

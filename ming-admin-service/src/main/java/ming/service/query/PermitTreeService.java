@@ -2,6 +2,7 @@ package ming.service.query;
 
 import ming.dao.query.QueryPermitMapper;
 import ming.dto.query.PermitNode;
+import ming.dto.query.QueryPermitListDto;
 import ming.dto.query.QueryPermitTreeDto;
 import ming.framework.util.ReflectUtil;
 import ming.po.permit.Permit;
@@ -15,10 +16,22 @@ import java.util.*;
 public class PermitTreeService {
 	@Resource
 	private QueryPermitMapper queryPermitMapper;
-
+	@Resource
+	private PermitListService permitListService;
 	public void queryPermitListByUserId(QueryPermitTreeDto queryPermitTreeDto) {
 		List<Permit> permitList = queryPermitMapper.selectPermitListByUserId(queryPermitTreeDto.getUserId());
 		buildPermitTree(permitList, queryPermitTreeDto);
+	}
+
+	public void queryAllPermitList(QueryPermitTreeDto queryPermitTreeDto) {
+		QueryPermitListDto permitListDto = buildQueryPermitListDto();
+		permitListService.queryPermitList(permitListDto);
+		buildPermitTree(permitListDto.getPermitList(), queryPermitTreeDto);
+	}
+
+	private QueryPermitListDto buildQueryPermitListDto() {
+		QueryPermitListDto permitListDto = new QueryPermitListDto();
+		return permitListDto;
 	}
 
 	private void buildPermitTree(List<Permit> permitList, QueryPermitTreeDto queryPermitTreeDto) {

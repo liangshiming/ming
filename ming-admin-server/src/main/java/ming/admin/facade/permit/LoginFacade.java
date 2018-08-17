@@ -24,7 +24,7 @@ public class LoginFacade extends BaseFacade {
 
 	private LoginDto buildLoginDto(LoginReq loginReq) {
 		LoginDto loginDto = new LoginDto();
-		loginDto.setUserId(loginReq.getUserId());
+		loginDto.setUserId(loginReq.getOperator());
 		loginDto.setPassword(loginReq.getPassword());
 		loginDto.setVerifyCode(loginReq.getVerifyCode());
 		return loginDto;
@@ -32,7 +32,7 @@ public class LoginFacade extends BaseFacade {
 
 	private void fillTokenToReq(LoginDto loginDto, LoginReq loginReq) {
 		loginReq.setLoginToken(loginDto.getToken());
-		loginReq.setUserId(loginDto.getUserId());
+		loginReq.setOperator(loginDto.getUserId());
 		loginReq.setNickName(loginDto.getNickName());
 	}
 }

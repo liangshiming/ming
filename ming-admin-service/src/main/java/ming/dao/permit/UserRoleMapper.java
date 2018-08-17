@@ -12,5 +12,4 @@ public interface UserRoleMapper {
 
 	int batchInsert(List<UserRole> userRoleList);
 
-	UserRole selectById(@Param("userId") String userId, @Param("roleId") String roleId);
 }

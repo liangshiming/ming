@@ -3,6 +3,7 @@ package ming.service.query;
 import ming.dao.query.QueryPermitMapper;
 import ming.dto.permit.PermitDto;
 import ming.dto.query.QueryPermitListDto;
+import ming.framework.util.PageUtil;
 import ming.framework.util.TimeProvider;
 import ming.po.permit.Permit;
 import ming.validate.permit.UserValidate;
@@ -18,9 +19,12 @@ public class PermitListService {
 	@Resource
 	private QueryPermitMapper queryPermitMapper;
 
-	public void queryPermitListByRoleId(QueryPermitListDto queryPermitListDto) {
-		List<Permit> permitList = queryPermitMapper.selectPermitListByRoleId(queryPermitListDto.getRoleId());
-		queryPermitListDto.setPermitList(permitList);
+	public void queryPermitList(QueryPermitListDto permitListDto) {
+		PageUtil.setPaging(permitListDto.getCurrentPage(), permitListDto.getPageSize());
+		List<Permit> permitList = queryPermitMapper
+				.selectAllPermitList(permitListDto.getPermitId(), permitListDto.getParentPermitId(),
+						permitListDto.getName(), permitListDto.getStatus());
+		permitListDto.setPermitList(permitList);
 	}
 
 }
