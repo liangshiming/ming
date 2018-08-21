@@ -6,4 +6,5 @@ import lombok.Data;
 public class QueryBaseDto {
 	private String currentPage;
 	private String pageSize;
+	private String loginToken;
 }

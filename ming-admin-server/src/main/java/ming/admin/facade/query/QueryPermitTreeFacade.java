@@ -33,6 +33,7 @@ public class QueryPermitTreeFacade extends BaseFacade {
 	private QueryPermitTreeDto buildQueryPermitListDto(QueryPermitTreeReq queryPermitTreeReq) {
 		QueryPermitTreeDto queryPermitListDto = new QueryPermitTreeDto();
 		queryPermitListDto.setUserId(queryPermitTreeReq.getOperator());
+		queryPermitListDto.setLoginToken(queryPermitTreeReq.getLoginToken());
 		return queryPermitListDto;
 	}
 }

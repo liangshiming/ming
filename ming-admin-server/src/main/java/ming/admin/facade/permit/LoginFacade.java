@@ -17,7 +17,7 @@ public class LoginFacade extends BaseFacade {
 
 	public TransRes login(LoginReq loginReq) {
 		LoginDto loginDto = buildLoginDto(loginReq);
-		loginService.login(buildLoginDto(loginReq));
+		loginService.login(loginDto);
 		fillTokenToReq(loginDto,loginReq);
 		return super.buildRes(loginReq);
 	}
@@ -27,11 +27,12 @@ public class LoginFacade extends BaseFacade {
 		loginDto.setUserId(loginReq.getOperator());
 		loginDto.setPassword(loginReq.getPassword());
 		loginDto.setVerifyCode(loginReq.getVerifyCode());
+		loginDto.setToken(loginReq.getToken());
 		return loginDto;
 	}
 
 	private void fillTokenToReq(LoginDto loginDto, LoginReq loginReq) {
-		loginReq.setLoginToken(loginDto.getToken());
+		loginReq.setLoginToken(loginDto.getLoginToken());
 		loginReq.setOperator(loginDto.getUserId());
 		loginReq.setNickName(loginDto.getNickName());
 	}

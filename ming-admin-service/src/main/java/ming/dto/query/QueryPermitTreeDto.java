@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class QueryPermitTreeDto {
+public class QueryPermitTreeDto extends QueryBaseDto{
 	private String userId;
 	private List<PermitNode> permitTreeList;
 }

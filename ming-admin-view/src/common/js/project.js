@@ -5,8 +5,7 @@ import Vue from 'vue'
 
 Vue.prototype.apiType = function() {
   return {
-    fetchToken: 'fetchToken',
-    fetchReqToken: 'fetchReqToken',
+    getToken: 'getToken',
     login: 'login', // 登录
     queryPermitTree: 'queryPermitTree', // 查询菜单
     queryAllPermitTree: 'queryAllPermitTree', // 查询菜单
@@ -45,7 +44,9 @@ Vue.prototype.requestStatus = function() {
 Vue.prototype.paramBase = function() {
   return {
     apiVersion: '1.0',
-    loginToken: this.getSessionStorage('token'),
-    operator: this.getSessionStorage('operator')
+    loginToken: this.getSessionStorage('loginToken'),
+    operator: this.getSessionStorage('operator'),
+    token:this.getSessionStorage('token'),
+    nickName:this.getSessionStorage('nickName')
   }
 }

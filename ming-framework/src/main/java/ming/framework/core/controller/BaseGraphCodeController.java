@@ -22,7 +22,7 @@ public abstract class BaseGraphCodeController {
 		response.setHeader("Pragma", "no-cache");
 		response.setContentType("image/jpeg");
 		String graphCodeText = this.captchaProducer.createText();
-		setGraphCode(graphCodeText);
+		setGraphCode(request,graphCodeText);
 		BufferedImage bufferedImage = this.captchaProducer.createImage(graphCodeText);
 		ServletOutputStream out = response.getOutputStream();
 		ImageIO.write(bufferedImage, "jpg", out);
@@ -35,5 +35,5 @@ public abstract class BaseGraphCodeController {
 
 	}
 
-	protected abstract void setGraphCode(String graphCodeText);
+	protected abstract void setGraphCode(HttpServletRequest request, String graphCodeText);
 }

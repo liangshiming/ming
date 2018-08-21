@@ -7,4 +7,6 @@ public class BaseApi {
 	private String apiName;
 
 	private String apiVersion;
+
+	private String token;
 }

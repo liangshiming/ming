@@ -13,4 +13,6 @@ public class LoginDto {
 	private String verifyCode;
 
 	private String token;
+
+	private String loginToken;
 }

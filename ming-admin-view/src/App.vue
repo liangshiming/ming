@@ -7,26 +7,18 @@
 <script>
   export default{
     name: 'App',
-    data() {
-      return {
-        apiName: {
-          fetchToken: this.apiType().fetchToken,
-        }
-      };
-    },
     methods: {
       fetchToken() {
-        /*let _this = this;
+        let _this = this;
         let token = _this.getSessionStorage('token');
         if (!token) {
-          this.ajax(this.apiName.fetchToken, this.serviceType().api, {}, function (responseData) {
+          this.ajax(this.apiType().getToken, this.serviceType().api, {}, function (responseData) {
             _this.setSessionStorage('token', responseData.token);
             _this.$router.addRoutes(_this.constantRouterMap);
           });
         } else {
           _this.$router.addRoutes(_this.constantRouterMap);
-        }*/
-        this.$router.addRoutes(this.constantRouterMap);
+        }
       }
     },
     created() {

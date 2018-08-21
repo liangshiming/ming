@@ -89,8 +89,9 @@
         };
         let _this = this;
         this.ajax(this.apiName.login, this.serviceType().api, param, function (responseData) {
-          _this.setSessionStorage("loginToken", responseData.token);
+          _this.setSessionStorage("loginToken", responseData.loginToken);
           _this.setSessionStorage('operator', responseData.operator);
+          _this.setSessionStorage('nickName', responseData.nickName);
           _this.$router.push({
             path: '/'
           });
