@@ -12,12 +12,10 @@
 
     <!-- 启用MVC注解 -->
     <mvc:annotation-driven/>
-    <!-- 指定Sping组件扫描的基本包路径 -->
-    <context:component-scan base-package="ming.admin.controller"
-                            annotation-config="true" use-default-filters="false">
+    <!-- 指定Spring组件扫描的基本包路径 -->
+    <context:component-scan base-package="ming.admin.controller" use-default-filters="false">
         <!-- 这里只扫描Controller，不可重复加载Service -->
-        <context:include-filter type="annotation"
-                                expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
@@ -29,7 +27,6 @@
         </property>
     </bean>
 
-    <bean id="mappingJacksonHttpMessageConverter"
-          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
 
 </beans>

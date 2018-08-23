@@ -1,8 +1,8 @@
 package ming.admin.facade.permit;
 
 import ming.admin.facade.BaseFacade;
-import ming.admin.vo.trans.LoginReq;
 import ming.admin.vo.base.TransRes;
+import ming.admin.vo.trans.LoginReq;
 import ming.dto.permit.LoginDto;
 import ming.service.permit.LoginService;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class LoginFacade extends BaseFacade {
 	public TransRes login(LoginReq loginReq) {
 		LoginDto loginDto = buildLoginDto(loginReq);
 		loginService.login(loginDto);
-		fillTokenToReq(loginDto,loginReq);
+		fillTokenToReq(loginDto, loginReq);
 		return super.buildRes(loginReq);
 	}
 

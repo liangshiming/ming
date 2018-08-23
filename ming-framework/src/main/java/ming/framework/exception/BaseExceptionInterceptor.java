@@ -15,7 +15,7 @@ public abstract class BaseExceptionInterceptor <T> {
 
 	protected abstract T buildResForException(Exception ex);
 
-	protected abstract T buildResForRuleException(SystemException cause);
+	protected abstract T buildResForSystemException(SystemException cause);
 
 	protected String formatMessage(Exception ex) {
 		return BeanFactory.getBean(ErrCodeService.class).formatException(ex);
@@ -25,7 +25,7 @@ public abstract class BaseExceptionInterceptor <T> {
 		Throwable cause = ex.getCause() == null ? ex : ex.getCause();
 		Object res;
 		if (cause != null && cause instanceof SystemException) {
-			res = this.buildResForRuleException((SystemException) cause);
+			res = this.buildResForSystemException((SystemException) cause);
 		} else {
 			res = this.buildResForException(ex);
 		}

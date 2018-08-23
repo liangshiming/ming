@@ -3,6 +3,7 @@ package ming.service.permit;
 import ming.constant.AdminSeqConst;
 import ming.dao.permit.RoleMapper;
 import ming.dao.permit.RolePermitMapper;
+import ming.dao.permit.UserRoleMapper;
 import ming.dto.permit.RoleDto;
 import ming.dto.permit.RolePermitDto;
 import ming.format.permit.PermitFormat;
@@ -35,6 +36,8 @@ public class RoleService {
 	@Resource
 	private RolePermitMapper rolePermitMapper;
 	@Resource
+	private UserRoleMapper userRoleMapper;
+	@Resource
 	private RoleValidate roleValidate;
 	@Resource
 	private PermitValidate permitValidate;
@@ -49,6 +52,7 @@ public class RoleService {
 	@Transient
 	public void delete(RoleDto roleDto) {
 		validateForDelete(roleDto);
+		userRoleMapper.deleteByRoleId(roleDto.getRoleId());
 		rolePermitMapper.deleteByRoleId(roleDto.getRoleId());
 		roleMapper.delete(roleDto.getRoleId());
 	}

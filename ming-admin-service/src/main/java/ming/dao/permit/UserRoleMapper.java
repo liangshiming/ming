@@ -12,4 +12,5 @@ public interface UserRoleMapper {
 
 	int batchInsert(List<UserRole> userRoleList);
 
+	int deleteByRoleId(@Param("roleId") String roleId);
 }

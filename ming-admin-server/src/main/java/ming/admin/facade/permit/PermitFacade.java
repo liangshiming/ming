@@ -15,19 +15,19 @@ public class PermitFacade extends BaseFacade {
 	@Resource
 	private PermitService permitService;
 
-	public TransRes permitAdd(PermitReq permitReq){
+	public TransRes permitAdd(PermitReq permitReq) {
 		PermitDto permitDto = buildPermitDto(permitReq);
 		permitService.add(permitDto);
 		return buildRes(permitReq);
 	}
 
-	public TransRes permitDelete(PermitReq permitReq){
+	public TransRes permitDelete(PermitReq permitReq) {
 		PermitDto permitDto = buildPermitDto(permitReq);
 		permitService.delete(permitDto);
 		return buildRes(permitReq);
 	}
 
-	public TransRes permitModify(PermitReq permitReq){
+	public TransRes permitModify(PermitReq permitReq) {
 		PermitDto permitDto = buildPermitDto(permitReq);
 		permitService.modify(permitDto);
 		return buildRes(permitReq);

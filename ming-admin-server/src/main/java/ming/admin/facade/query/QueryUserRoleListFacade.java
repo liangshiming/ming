@@ -15,10 +15,10 @@ public class QueryUserRoleListFacade extends BaseFacade {
 	@Resource
 	private UserRoleListService userRoleListService;
 
-	public QueryRes queryUserRoleList(QueryUserRoleListReq userRoleListReq){
+	public QueryRes queryUserRoleList(QueryUserRoleListReq userRoleListReq) {
 		QueryUserRoleListDto queryRoleListDto = buildUserListDto(userRoleListReq);
 		userRoleListService.queryUserRoleList(queryRoleListDto);
-		return super.buildRes(userRoleListReq,queryRoleListDto.getUserRoleList());
+		return super.buildRes(userRoleListReq, queryRoleListDto.getUserRoleList());
 	}
 
 	private QueryUserRoleListDto buildUserListDto(QueryUserRoleListReq userRoleListReq) {

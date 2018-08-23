@@ -20,25 +20,25 @@ public class RoleFacade extends BaseFacade {
 	@Resource
 	private RoleService roleService;
 
-	public TransRes roleAdd(RoleReq roleReq){
+	public TransRes roleAdd(RoleReq roleReq) {
 		RoleDto roleDto = buildRoleDto(roleReq);
 		roleService.add(roleDto);
 		return buildRes(roleReq);
 	}
 
-	public TransRes roleDelete(RoleReq roleReq){
+	public TransRes roleDelete(RoleReq roleReq) {
 		RoleDto roleDto = buildRoleDto(roleReq);
 		roleService.delete(roleDto);
 		return buildRes(roleReq);
 	}
 
-	public TransRes roleModify(RoleReq roleReq){
+	public TransRes roleModify(RoleReq roleReq) {
 		RoleDto roleDto = buildRoleDto(roleReq);
 		roleService.modify(roleDto);
 		return buildRes(roleReq);
 	}
 
-	public TransRes rolePermitModify(RolePermitReq rolePermitReq){
+	public TransRes rolePermitModify(RolePermitReq rolePermitReq) {
 		RolePermitDto rolePermitDto = buildRolePermitDto(rolePermitReq);
 		roleService.modifyRolePermitList(rolePermitDto);
 		return buildRes(rolePermitReq);
@@ -57,6 +57,7 @@ public class RoleFacade extends BaseFacade {
 		rolePermitDto.setPermitList(getPermitIdList(rolePermitReq));
 		return rolePermitDto;
 	}
+
 	private List<String> getPermitIdList(RolePermitReq rolePermitReq) {
 		String permitIdListStr = rolePermitReq.getPermitListStr();
 		if (StringUtils.isEmpty(permitIdListStr)) {

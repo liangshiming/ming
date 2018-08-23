@@ -15,10 +15,10 @@ public class QueryUserListFacade extends BaseFacade {
 	@Resource
 	private UserListService userListService;
 
-	public QueryRes queryAllUser(QueryUserListReq queryUserListReq){
+	public QueryRes queryAllUser(QueryUserListReq queryUserListReq) {
 		QueryUserListDto queryUserListDto = buildUserListDto(queryUserListReq);
 		userListService.queryAllUserList(queryUserListDto);
-		return super.buildRes(queryUserListReq,queryUserListDto.getUserList());
+		return super.buildRes(queryUserListReq, queryUserListDto.getUserList());
 	}
 
 	private QueryUserListDto buildUserListDto(QueryUserListReq queryUserListReq) {

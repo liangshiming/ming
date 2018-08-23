@@ -1,8 +1,8 @@
 package ming.admin.facade.permit;
 
 import ming.admin.facade.BaseFacade;
-import ming.admin.vo.trans.UserReq;
 import ming.admin.vo.base.TransRes;
+import ming.admin.vo.trans.UserReq;
 import ming.admin.vo.trans.UserRoleReq;
 import ming.dto.permit.UserDto;
 import ming.dto.permit.UserRoleDto;
@@ -20,25 +20,25 @@ public class UserFacade extends BaseFacade {
 	@Resource
 	private UserService userService;
 
-	public TransRes userAdd(UserReq userReq){
+	public TransRes userAdd(UserReq userReq) {
 		UserDto userDto = buildUserDto(userReq);
 		userService.add(userDto);
 		return buildRes(userReq);
 	}
 
-	public TransRes userDelete(UserReq userReq){
+	public TransRes userDelete(UserReq userReq) {
 		UserDto userDto = buildUserDto(userReq);
 		userService.delete(userDto);
 		return buildRes(userReq);
 	}
 
-	public TransRes userModify(UserReq userReq){
+	public TransRes userModify(UserReq userReq) {
 		UserDto userDto = buildUserDto(userReq);
 		userService.modify(userDto);
 		return buildRes(userReq);
 	}
 
-	public TransRes userRoleModify(UserRoleReq userRoleReq){
+	public TransRes userRoleModify(UserRoleReq userRoleReq) {
 		UserRoleDto userRoleDto = buildUserRoleDto(userRoleReq);
 		userService.modifyRoleList(userRoleDto);
 		return buildRes(userRoleReq);
@@ -61,6 +61,7 @@ public class UserFacade extends BaseFacade {
 		userRoleDto.setRoleList(buildUserRoleList(userRoleReq));
 		return userRoleDto;
 	}
+
 	private List<String> buildUserRoleList(UserRoleReq userRoleReq) {
 		String roleListStr = userRoleReq.getRoleListStr().replace(" ", "");
 		String[] roleListArray = StringUtils.split(roleListStr, ",");

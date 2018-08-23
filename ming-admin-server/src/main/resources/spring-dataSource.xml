@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/jee/spring-jee.xsd">
 
     <!-- dataSource -->
-    <jee:jndi-lookup id="dataSource" jndi-name="jndi_ming" resource-ref="true"/>
+    <jee:jndi-lookup id="dataSource" jndi-name="jndi_ming"/>
 
     <!-- transaction -->
     <bean id="transactionManager"
@@ -19,7 +19,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven/>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>

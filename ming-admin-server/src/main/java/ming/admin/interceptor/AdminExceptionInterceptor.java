@@ -27,7 +27,7 @@ public class AdminExceptionInterceptor extends BaseExceptionInterceptor<TransRes
 	}
 
 	@Override
-	protected TransRes buildResForRuleException(SystemException ex) {
+	protected TransRes buildResForSystemException(SystemException ex) {
 		TransRes res = new TransRes();
 		res.setResultCode(ex.getCode());
 		res.setMessage(formatMessage(ex));
