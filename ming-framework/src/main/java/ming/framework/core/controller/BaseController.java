@@ -56,6 +56,7 @@ public abstract class BaseController {
 		log.info("====>请求参数 : {}", JsonUtil.toJson(req));
 		Object service = getBean(serviceApi.getService());
 		Object result = ReflectUtil.invoke(service, serviceApi.getMethod(), req);
+		log.info("<====返回参数 : {}", JsonUtil.toJson(result));
 		return result;
 	}
 

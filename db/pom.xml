@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>db</name>
-    <url>https://gitee.com/Jrick</url>
+    <url>https://github.com/Jricky/ming</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

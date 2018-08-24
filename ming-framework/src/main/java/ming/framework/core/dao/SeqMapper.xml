@@ -5,6 +5,6 @@
 		select nextval(#{seqName,jdbcType=VARCHAR}) as id
 	</select>
     <select id="getTimeSeq" parameterType="java.lang.String" resultType="java.lang.String">
-		select concat(date_format(now()'%Y%m%d%H%m%s'),nextval(#{seqName,jdbcType=VARCHAR})) as id
+		select concat(date_format(now(),'%Y%m%d%H%m%s'),nextval(#{seqName,jdbcType=VARCHAR})) as id
 	</select>
 </mapper>
