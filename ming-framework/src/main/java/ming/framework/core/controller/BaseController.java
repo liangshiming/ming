@@ -33,10 +33,10 @@ public abstract class BaseController {
 	}
 
 	private Map<String, Object> initParamMap(HttpServletRequest request) {
-		Map<String, Object> paramMap = request.getParameterMap();
+		Map<String, String[]> paramMap = request.getParameterMap();
 		Map<String, Object> map = new HashMap<>();
-		for (Map.Entry<String, Object> entry : paramMap.entrySet()) {
-			String[] valueArr = (String[]) entry.getValue();
+		for (Map.Entry<String, String[]> entry : paramMap.entrySet()) {
+			String[] valueArr = entry.getValue();
 			String value = "";
 			if (valueArr != null && valueArr.length > 0 && valueArr[0] != null) {
 				value = valueArr[0].trim();
