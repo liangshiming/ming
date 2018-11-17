@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/ming-admin-server': {
-        target: 'http://localhost:8080/ming-admin-server/',
+        target: 'http://localhost:8080/',
         changeOrigin: true,
         pathRewrite: {
           '^/ming-admin-server': ''
