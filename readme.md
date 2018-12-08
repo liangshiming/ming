@@ -1,5 +1,5 @@
 ## 项目介绍
-　　基于Spring+SpringMVC+Mybatis系统架构。
+　　基于SpringBoot+Mybatis系统架构。
 ### 组织结构
 
 ``` lua
