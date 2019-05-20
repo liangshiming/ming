@@ -12,7 +12,7 @@ ming
 ```
 
 ### 技术选型
-   架构采用SSM,
+   架构采用springboot,
    数据库使用mysql,
    数据库版本控制采用dbdeploy,
    前后端交互采用ajax,实现了前后端分离
