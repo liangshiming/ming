@@ -31,5 +31,6 @@
         <module>db</module>
         <module>ming-admin-service</module>
         <module>ming-admin-server</module>
+        <module>ming-task-server</module>
     </modules>
 </project>

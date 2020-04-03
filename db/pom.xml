@@ -18,9 +18,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
 
-        <db.url>jdbc:mysql//localhost:3306/mysql</db.url>
-        <db.usr>root</db.usr>
-        <db.pwd>root1234</db.pwd>
+        <db.url>jdbc:mysql//39.105.172.91:3306/ming</db.url>
+        <db.usr>ming</db.usr>
+        <db.pwd>ming</db.pwd>
     </properties>
 
     <build>

@@ -16,7 +16,7 @@
         <Prudent>true</Prudent>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>
-                /app/log/${CONTEXT_NAME}/error/${HOSTNAME}.${CONTEXT_NAME}.%d{yyyy-MM-dd}.error.log
+                app/log/${CONTEXT_NAME}/error/${HOSTNAME}.${CONTEXT_NAME}.%d{yyyy-MM-dd}.error.log
             </FileNamePattern>
         </rollingPolicy>
         <encoder>
@@ -32,7 +32,7 @@
         <Prudent>true</Prudent>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>
-                /app/log/${CONTEXT_NAME}/debug/${HOSTNAME}.${CONTEXT_NAME}.%d{yyyy-MM-dd}.debug.log
+                app/log/${CONTEXT_NAME}/debug/${HOSTNAME}.${CONTEXT_NAME}.%d{yyyy-MM-dd}.debug.log
             </FileNamePattern>
         </rollingPolicy>
         <encoder>
